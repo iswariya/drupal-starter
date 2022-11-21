@@ -123,6 +123,24 @@ function server_theme_theme() {
     ],
   ];
 
+  // Person card.
+  $info['server_theme_person_card'] = [
+    'variables' => [
+      'name' => NULL,
+      'jobTitle' => NULL,
+      'role' => NULL,
+      'image' => NULL,
+    ],
+  ];
+
+    // Person cards.
+    $info['server_theme_person_cards'] = [
+      'variables' => [
+        // A list of cards.
+        'items' => [],
+      ],
+    ];
+
   // Multiple cards.
   $info['server_theme_cards'] = [
     'variables' => [

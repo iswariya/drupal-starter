@@ -87,6 +87,9 @@ class StyleGuideController extends ControllerBase {
     $element = $this->getCards();
     $build[] = $this->wrapElementWideContainer($element, 'Cards');
 
+    $element = $this->getPersonCards();
+    $build[] = $this->wrapElementWideContainer($element, 'Person Cards');
+
     $element = $this->getTags();
     $build[] = $this->wrapElementWideContainer($element, 'Tags');
 
@@ -179,6 +182,42 @@ class StyleGuideController extends ControllerBase {
 
     return [
       '#theme' => 'server_theme_cards',
+      '#items' => $items,
+    ];
+  }
+
+  /**
+   * Get person cards.
+   *
+   * @return array
+   *   Render array.
+   */
+  protected function getPersonCards(): array {
+    $image = $this->buildImage($this->getPlaceholderImage(128, 128), 'Card image');
+
+    $card = [
+      '#theme' => 'server_theme_person_card',
+      '#image' => $image,
+      '#name' => 'Jane Copper',
+      '#role' => 'Admin',
+      '#jobTitle' => 'Paradigm Representative'
+    ];
+  
+    $items = [
+      $card,
+      $card,
+      $card,
+      $card,
+      $card,
+      $card,
+      $card,
+      $card,
+      $card,
+      $card,
+    ];
+
+    return [
+      '#theme' => 'server_theme_person_cards',
       '#items' => $items,
     ];
   }
